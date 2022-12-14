@@ -3,3 +3,5 @@ const router = express.Router();
 import {register} from "../functions.js/general"
 
 router.post("/register", register);
+
+module.exports=router
