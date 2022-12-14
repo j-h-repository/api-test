@@ -21,10 +21,11 @@ app.use(cors({
 		//post request for registering the user
 app.post("/api/register",(req,res)=>{
     console.log("received data: ", req.body);
-    
     res.json({"message":"received"})
    
 })
+
+console.log("the server is running")
 
 		//create the port
 const port = 8000
