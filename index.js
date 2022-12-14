@@ -15,7 +15,14 @@ const app = express();
 		//apply some middlewares with .use();
 app.use(express.json({limit:"5mb"}));
 app.use(express.urlencoded({extended:true}));
-app.use(cors())
+app.use(cors(
+	{
+		"origin": "*",
+		"methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+		"preflightContinue": false,
+		"optionsSuccessStatus": 204
+	  }
+))
 
 		//post request for registering the user
 // app.post("/api/register",(req,res)=>{
