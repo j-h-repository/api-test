@@ -3,6 +3,7 @@ const express = require("express")
 const cors = require("cors")
 //const morgan = require("morgan");
 require("dotenv").config();
+import {readdirSync} from "fs";
 
 const app = express();
 
@@ -17,13 +18,13 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors())
 
 		//post request for registering the user
-app.post("/api/register",(req,res)=>{
-    console.log("received data: ", req.body);
-    res.json({"message":"received"})
+// app.post("/api/register",(req,res)=>{
+//     console.log("received data: ", req.body);
+//     res.json({"message":"received"})
    
-})
+// })
 
-console.log("the server is running")
+readdirSync(`./routes`).map((r)=>app.use(`/api`, require(`./routes/${r}`)))
 
 		//create the port
 const port = 8000
