@@ -32,6 +32,6 @@ app.use(cors(
 readdirSync(`./routes`).map((r)=>app.use(`/api`, require(`./routes/${r}`)))
 
 		//create the port
-const port = 10000
+const port = 8000
 app.listen(port,()=>{
-    console.log("server running on port 10000")})
+    console.log("server running on port 8000")})
